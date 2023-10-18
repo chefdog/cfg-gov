@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-md-3">
+        <cfg-left-nav></cfg-left-nav>
+    </div>
+    
+    <div class="col-md-9">
+        <span>Componenten</span>
+        <h1>Checkbox</h1>
+
+
+        <form class="form-horizontal" [formGroup]="form" (ngSubmit)="onSubmit()" class="horizontal-form" novalidate>
+            <fieldset control-id="ControlID-5">
+                <legend class="visually-hidden">Welke sporten</legend>
+                <div class="form-group row required">
+                    <div class="col-form-label col-md-4 pt-0" id="sporten-label"><span class="visually-hidden">(Verplicht veld)</span>
+                        What is your most favorite sport? </div>
+                    <div class="col-md-8 col-control">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" (change)="onSelectAll($event)">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Select all</label>
+                        </div>
+                        <hr>
+                        <div role="group" aria-labelledby="sporten-label" aria-describedby="sporten-helptext-content" formGroupName="sportsGroup">
+                            <div class="form-check styled" *ngFor="let item of sports; index as i">
+                                <input class="form-check-input" type="checkbox" name="sporten" id="{{item}}" [formControlName]="item">
+                                <label class="form-check-label" for="{{item}}">
+                                    {{item}}
+                                </label>
+                            </div>
+                            
+                        </div>
+        
+                        <div role="alert" *ngIf="sportsGroup.errors">                            
+                            <div class="errorText">
+                                <fa-icon [icon]="['fas', 'exclamation']"></fa-icon> Sports is a required field
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+
+                <div class="form-group row last">
+                    <div class="col-md-8">
+                    <button type="submit" class="btn btn-primary">Save</button></div>
+                </div>
+            </fieldset>
+        </form>
+
+
+        <code class="code-viewer">
+            <p>
+                {{form.valid}}
+            </p>
+            <p>
+                {{form.value | json}}
+            </p>            
+        </code>
+        
+    </div>
+</div>

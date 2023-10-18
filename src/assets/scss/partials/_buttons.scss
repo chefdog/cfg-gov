@@ -1,0 +1,20 @@
+.btn {
+    border-radius: 0;
+    box-shadow: none;
+    &.btn-primary {
+        background-color: $brand-color-1;
+        color: $white;
+        border-color: $brand-color-1;
+        &:hover {
+            background-color: $brand-color-1;
+        }
+    }
+}
+
+.btn-default {
+    @extend .btn;
+
+    &.btn-sm {
+        
+    }
+}

@@ -1,0 +1,10 @@
+<div class="block">
+    <h2>Aside demo</h2>
+    <p>Optionele beschrijving.</p>
+    <ul *ngIf="listData">
+        <li *ngFor="let item of listData | async">
+            <a href="#" class="link">{{item.title}}</a><br/>
+            <p [innerHTML]="item.content | markdown"></p>
+        </li>
+    </ul>
+</div>

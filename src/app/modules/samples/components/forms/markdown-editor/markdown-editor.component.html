@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-md-2">
+        <cfg-left-nav></cfg-left-nav>
+    </div>
+    
+    <div class="col-md-7">
+        <span>Componenten</span>
+        <h1>Markdown editor</h1>
+
+        <form class="form-horizontal" [formGroup]="form" (ngSubmit)="onSubmit()" class="horizontal-form" novalidate>
+            <fieldset control-id="ControlID-5">
+                <legend class="visually-hidden">Welke sporten</legend>
+
+                <div class="form-group row required">
+                    <label for="title" class="col-md-4 col-form-label">
+                        <span class="visually-hidden">verplicht veld</span>Title
+                    </label>
+                    <div class="col-md-8 col-control">
+                        <input type="text" id="title" class="form-control" formControlName="title">
+                    </div>
+                </div>
+
+                <div class="form-group row required">
+                    <label for="content" class="col-md-4 col-form-label">
+                        <span class="visually-hidden">verplicht veld</span>Content
+                    </label>
+                    <div class="col-md-8 col-control">
+                        <angular-markdown-editor 
+                            class="form-control-editor"
+                            textareaId="content"
+                            [options]="editorOptions"
+                            [rows]="8"
+                            formControlName="content">
+                        </angular-markdown-editor>
+                    </div>
+                </div>
+
+                <div class="form-group row last">
+                    <div class="col-md-8 offset-md-4">
+                    <button type="submit" class="btn btn-primary">Save</button></div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <aside  class="col-md-3">
+        <cfg-aside></cfg-aside>
+    </aside>
+</div>
